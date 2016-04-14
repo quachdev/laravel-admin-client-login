@@ -3,6 +3,8 @@
 namespace App\Http\Middleware;
 
 use Closure;
+use Illuminate\Support\Facades\Auth;
+
 
 class MustBeAdmin
 {
@@ -15,17 +17,20 @@ class MustBeAdmin
      */
     public function handle($request, Closure $next)
     {
-        $user = $request->user();
+        // $user = $request->user();
 
-        if($user && $user->isAdmin()) {
+        // if($user && $user->isAdmin()) {
+        //     return $next($request);
+        // } elseif ($user) {
+        //     return redirect('home');
+        // }        
+
+        if(Auth::user() && Auth::user()->isAdmin()) {
             return $next($request);
-        } elseif ($user) {
+        } elseif (Auth::user()) {
             return redirect('home');
         }
-        // if($user && $user->email == 'johndoe@example.com') {
-        //     return $next($request);   
-        // }
-        // return redirect('/');
+        
         return redirect()->guest('login');
 
     }
