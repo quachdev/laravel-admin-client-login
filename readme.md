@@ -1,27 +1,31 @@
-# Laravel PHP Framework
+# Laravel Admin/Client Login
 
-[![Build Status](https://travis-ci.org/laravel/framework.svg)](https://travis-ci.org/laravel/framework)
-[![Total Downloads](https://poser.pugx.org/laravel/framework/d/total.svg)](https://packagist.org/packages/laravel/framework)
-[![Latest Stable Version](https://poser.pugx.org/laravel/framework/v/stable.svg)](https://packagist.org/packages/laravel/framework)
-[![Latest Unstable Version](https://poser.pugx.org/laravel/framework/v/unstable.svg)](https://packagist.org/packages/laravel/framework)
-[![License](https://poser.pugx.org/laravel/framework/license.svg)](https://packagist.org/packages/laravel/framework)
+Differentiates between admin user and a client user
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable, creative experience to be truly fulfilling. Laravel attempts to take the pain out of development by easing common tasks used in the majority of web projects, such as authentication, routing, sessions, queueing, and caching.
+### Dummy Credentials
+Admin: johndoe@example.com
+Client: janedoe@example.com 
+Password (for both): password
 
-Laravel is accessible, yet powerful, providing tools needed for large, robust applications. A superb inversion of control container, expressive migration system, and tightly integrated unit testing support give you the tools you need to build any application with which you are tasked.
+- `/dashboard` only for admin access
+- `/home` for client/admin access
 
-## Official Documentation
+### To use
+ - `composer install` to install vendor components
+ - `php artisan migrate` to create schema tables
+ - `php artisan serve` to boot local server
+ - go to `/create` to generate two dummy users (one as admin, other as client)a
+ - go to `/login` to enter credentials
 
-Documentation for the framework can be found on the [Laravel website](http://laravel.com/docs).
 
-## Contributing
+### Reset Password 
+ - Since no live server, reset password link will be in the directory: `storage/logs/laravel.log`
+ - Copy and paste link into browser provided in log to change new password
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](http://laravel.com/docs/contributions).
+### Custom Config
+Any other config that you do can be customized by creating a `.env` file and customizing the parameters in there 
 
-## Security Vulnerabilities
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell at taylor@laravel.com. All security vulnerabilities will be promptly addressed.
-
-## License
+#### License
 
 The Laravel framework is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT).
